@@ -1,0 +1,404 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sample size &#8212; Sample Size Book</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet" />
+  <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Sensitivity analysis for the sample size" href="Power%20Analysis%20in%20Python%20-%20test%20case.html" />
+    <link rel="prev" title="Power Analysis" href="How%20to%20increase%20the%20power.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+      <img src="_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Sample Size Book</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="intro.html">
+   Welcome to Sample Size tutorial
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Introduction &amp; Formulation
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Introduction.html">
+   Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="How%20to%20increase%20the%20power.html">
+   Power Analysis
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Sample size
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Sensitivity Analysis
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Power%20Analysis%20in%20Python%20-%20test%20case.html">
+   Sensitivity analysis for the sample size
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Advanced_topics_not_covered.html">
+   Advanced Topic not covered
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/Sample size.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/executablebooks/jupyter-book"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FSample size.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/Sample size.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#formulation">
+   Formulation
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#derivation-of-formula">
+     Derivation of formula
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#continuos-metrics">
+     Continuos metrics
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#proportional-metrics">
+     Proportional metrics
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#rule-of-thumb-for-the-two-sample-case">
+     Rule of thumb for the two-sample case
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="sample-size">
+<h1>Sample size<a class="headerlink" href="#sample-size" title="Permalink to this headline">¶</a></h1>
+<p>Before to jump into the mathematical formulation for the sample size derivation, the previous discussion about all the factor that influence the power can be applied also to the sample size : below a list of those components that we will discuss in the next section.</p>
+<div class="figure align-default" id="log-figure">
+<a class="reference internal image-reference" href="_images/sampleSizeDep.png"><img alt="_images/sampleSizeDep.png" src="_images/sampleSizeDep.png" style="height: 300px;" /></a>
+</div>
+<p>It is evident that the sample size is highly sensitive to these parameters: having a control of how the change of one of those affects the sample size is of crucial importance to the determination of the size that would make the experiments meaningful.</p>
+<div class="section" id="formulation">
+<h2>Formulation<a class="headerlink" href="#formulation" title="Permalink to this headline">¶</a></h2>
+<p>Different formulations can be found in literature, some of those with strong assumption other with less clear assumptions and fundation. In any case, all those derivations conduct to a similar results and can be classified in two category: sample size for 1 sample (similar to 2 matched samples) and sample size for 2 independent samples.</p>
+<p>Let’s recap quickly what each of those two categories would cover:</p>
+<ul class="simple">
+<li><p>1 sample test: The one sample z test compares the mean of your sample data to a known value. For example, you might want to know how your sample mean compares to the population mean (<span class="math notranslate nohighlight">\(\mu_0\)</span>). For this test typically we compute the z statistics as :  <span class="math notranslate nohighlight">\( z= \frac{\bar{x}- \mu_0}{\sigma / \sqrt{n}} \)</span></p></li>
+</ul>
+<p>where n is the size of the sample and <span class="math notranslate nohighlight">\(\sigma\)</span> the estimated standard deviation of the population</p>
+<div class="alert alert-block alert-warning"> <b> Example: </b> A recent report indicated that 26% of people free of cardiovascular disease had elevated LDL cholesterol levels, defined as LDL > 159 mg/dL. An investigator hypothesizes that a higher proportion of patients with a history of cardiovascular disease will have elevated LDL cholesterol. How many patients should be studied to ensure that the power of the test is 90% to detect a 5% difference in the proportion with elevated LDL cholesterol? A two sided test will be used with a 5% level of significance.   
+</div>
+<ul class="simple">
+<li><p>2 sample test: Suppose the two groups are A and B, and we collect a sample from both groups, i.e. we have two samples. We perform a two-sample test to determine whether the mean in group A, <span class="math notranslate nohighlight">\(\mu_A\)</span> , is different from the mean in group B, <span class="math notranslate nohighlight">\(\mu_B\)</span>. The z statistics in this case is : <span class="math notranslate nohighlight">\(z= \frac{\mu_A- \mu_B}{\sigma_p / \sqrt{1/n_A + 1/n_B}}\)</span> where the standard error in the most generical case is the pooled standard error <span class="math notranslate nohighlight">\(\sigma_p = \sqrt{\frac{(n_A-1) \sigma_A^2 +(n_B-1) \sigma_B^2}{n_A+n_B-2} }\)</span>.In the most common case in which <span class="math notranslate nohighlight">\(n_A=n_B=n_i\)</span> and assuming that the two standard error <span class="math notranslate nohighlight">\(\sigma_A=\sigma_B=\sigma_i\)</span> the previous z statistics reduces to <span class="math notranslate nohighlight">\( z= \frac{\mu_A- \mu_B}{\sigma_i / \sqrt{2/n_i}} \)</span></p></li>
+</ul>
+<p>We will focus on the sample size derived from the 2 sample test since is the one we have to apply in case of AB test.</p>
+<p>In <strong>[REF 2]</strong> there is an overview of some formulas applied in different context, in the following we will focus on the main one which seems to be generally adopted in the community and has been derived also in <strong>[REF 1, 4]</strong>.</p>
+<p>In general the formulation is splitted in two main scenarios:</p>
+<ul class="simple">
+<li><p>continuous</p></li>
+<li><p>proportion</p></li>
+</ul>
+<div class="alert alert-block alert-danger"> <b> Assumption: </b> The following formulation is obtained for the case of two sample with the same standard deviation and equal number of observations for the two distributions. In case those hypothesis are not satisfied the formulation can be generalised.  </div>
+<div class="section" id="derivation-of-formula">
+<h3>Derivation of formula<a class="headerlink" href="#derivation-of-formula" title="Permalink to this headline">¶</a></h3>
+<p>There are different ways to  derive the previous formula. One of the most concise and graphical way is proposed in  <a class="reference external" href="http://www.vanbelle.org/chapters/webchapter2.pdf">Ref 1: </a></p>
+<div class="figure align-default" id="id1">
+<a class="reference internal image-reference" href="_images/derivation.png"><img alt="_images/derivation.png" src="_images/derivation.png" style="height: 300px;" /></a>
+</div>
+<p>The critical value definesthe boundary between the rejection and nonrejection
+regions. This value must be the same under the null and alternative hypotheses. This
+then leads to the fundamental equation for the two-sample situation:</p>
+<div class="math notranslate nohighlight">
+\[ 0 + z_{1-\alpha/2} \sigma \sqrt{2/n} = \delta -z_{1-\beta}\sigma \sqrt{2/n}\]</div>
+<p>solving it for <span class="math notranslate nohighlight">\(n\)</span> will lead to the previous formula</p>
+</div>
+<div class="section" id="continuos-metrics">
+<h3>Continuos metrics<a class="headerlink" href="#continuos-metrics" title="Permalink to this headline">¶</a></h3>
+<p>The formula for the sample size required to compare two population means, <span class="math notranslate nohighlight">\(\mu_0\)</span> and <span class="math notranslate nohighlight">\(\mu_1\)</span>, with common variance, <span class="math notranslate nohighlight">\(\sigma^2\)</span> and supposing an equal size <span class="math notranslate nohighlight">\(n_A=n_B=n_i\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[n_i = \frac{2(z_{1-\alpha/2} + z_{1-\beta})^2 }{ \big(\frac{\mu_0 -\mu_1}{\sigma}\big)^2 } \]</div>
+<p>where :</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\mu_0 -\mu_1\)</span> is the expected difference between the two treatments</p></li>
+<li><p><span class="math notranslate nohighlight">\(z_{1-\alpha/2}\)</span>, <span class="math notranslate nohighlight">\( z_{1-\beta}\)</span> are the Normal values for power and significance</p></li>
+<li><p><span class="math notranslate nohighlight">\(\sigma\)</span>  is the estimated sample variance (this will be extracted from historical data for the control variant)</p></li>
+</ul>
+<p>In the case ratio between the sample sizes of the two groups is : <span class="math notranslate nohighlight">\(k=n_A/n_B\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[n_i = \big(1+ \frac{1}{k}\big) \frac{(z_{1-\alpha/2} + z_{1-\beta})^2 }{ \big(\frac{\mu_0 -\mu_1}{\sigma}\big)^2 } \]</div>
+</div>
+<div class="section" id="proportional-metrics">
+<h3>Proportional metrics<a class="headerlink" href="#proportional-metrics" title="Permalink to this headline">¶</a></h3>
+<p>The equivalent formula for the proportional metric is</p>
+<div class="math notranslate nohighlight">
+\[n_i = \frac{2(z_{1-\alpha/2} + z_{1-\beta})^2 }{ \big(\frac{p_1 -p_2}{p_1 (1-p_1)}\big)^2 } \]</div>
+</div>
+<div class="section" id="rule-of-thumb-for-the-two-sample-case">
+<h3>Rule of thumb for the two-sample case<a class="headerlink" href="#rule-of-thumb-for-the-two-sample-case" title="Permalink to this headline">¶</a></h3>
+<p>The recommended values are for <span class="math notranslate nohighlight">\(\alpha=0.05\)</span> and <span class="math notranslate nohighlight">\(1-\beta = 0.8\)</span> and this means that consequently <span class="math notranslate nohighlight">\(z_{1-\alpha/2}=1.96\)</span> and <span class="math notranslate nohighlight">\( z_{1-\beta}=0.84\)</span>. The numerator of both the continuos and proportional metrics would be <span class="math notranslate nohighlight">\(2(z_{1-\alpha/2} + z_{1-\beta})^2 =15.68\)</span> which can be rounded up to 16 producing the simple rule of thumb:</p>
+<div class="math notranslate nohighlight">
+\[n_i = \frac{16}{\Delta^2} \]</div>
+<p>The <span class="math notranslate nohighlight">\(\Delta\)</span> is called also effect size and in the case of the continous metric is equals to :</p>
+<div class="math notranslate nohighlight">
+\[ \Delta = \frac{\mu_0 -\mu_1}{\sigma} = \frac{\delta}{\sigma} \]</div>
+<p>and is the treatment difference to be detected in units of the standard deviation–the
+standardized difference.</p>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="How%20to%20increase%20the%20power.html" title="previous page">Power Analysis</a>
+    <a class='right-next' id="next-link" href="Power%20Analysis%20in%20Python%20-%20test%20case.html" title="next page">Sensitivity analysis for the sample size</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By The Jupyter Book Community<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>
