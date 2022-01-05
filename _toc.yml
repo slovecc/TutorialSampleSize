@@ -1,0 +1,15 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+format: jb-book
+root: intro
+parts:
+- caption: Introduction & Formulation
+  chapters:
+  - file: Introduction
+  - file: How to increase the power
+  - file: Sample size
+- caption: Sensitivity Analysis
+  chapters:
+  - file: Power Analysis in Python - test case
+  - file: Advanced_topics_not_covered
